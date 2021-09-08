@@ -27,8 +27,17 @@ export function setToDoList(itemsToDo) {
     setUser(user);
 } 
 // takes in a message, and creates a todo item and puts that into local storage
-export function addToDoItem(){
+export function addToDoItem(string){
+    const toDoList = getToDoList();
 
+    const newToDoItem = {
+        id: Math.floor((Math.random() * 100000) / 10),
+        doThis: string,
+        completed: false,
+    };
+    toDoList.push(newToDoItem);
+
+    setToDoList(toDoList);
 }
     
 

@@ -1,14 +1,6 @@
-import { setUser } from "../local-storage-utils.js";
+import { setUser } from '../local-storage-utils.js';
 
-const setNewUserButton = document.getElementById('submit-user-button');
 const newUserForm = document.getElementById('new-user-form');
-
-
-// setNewUserButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     window.location.href = '../to-do/index.html';
-// });
 
 
 newUserForm.addEventListener('submit', (e) => {
