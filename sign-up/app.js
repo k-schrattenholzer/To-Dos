@@ -15,18 +15,18 @@ newUserForm.addEventListener('submit', (e) => {
     e.preventDefault();
     // create form data object
     const formData = new FormData(newUserForm);
+    const userName = formData.get('un');
 
-    console.log(formData);
     // userData creates user object
     const user = {
         name: formData.get('name'),
-        username: formData.get('un'),
+        username: userName,
         password: formData.get('pass'),
         itemsToDo: {}
     };
     // set user in local storage
     setUser(user);
     // take user to choose adventure page
-    // window.location = './choose-adventure/index.html';
+    window.location = `../to-do/index.html?username=${userName}`;
   
 });
