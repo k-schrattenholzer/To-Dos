@@ -1,17 +1,33 @@
-import { getUser, setUser, getTodos, setTodos, addTodos, completeTodo } from "../local-storage-utils.js";
+import { getUser, setUser, getToDoList, setToDoList, addToDoItem, itemCompleted, USEROBJ } from "../local-storage-utils.js";
 
 const test = QUnit.test;
 
-test('setUser should put a user into localStorage', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
-    const expected = true;
-    
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = JSON.parse(localstorage.getItem('USER'));
+const testUser = {
+    username: 'un1',
+    password: '1234',
+    itemstodo: [
+        {
+            id: 1,
+            todo: 'eat brekkie',
+            completed: false
+        }
+    ]
+};
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+test('setUser should put a user into localStorage', (expect) => {
+    localStorage.removeItem(USEROBJ);
+
+    setUser(testUser);
+    
+    const actual = JSON.parse(localStorage.getItem(USEROBJ));
+
+    expect.deepEqual(actual, testUser);
+});
+
+test('getUser should get the user object from localStorage', (expect) => {
+    localStorage.setItem(USEROBJ, JSON.stringify(testUser));
+
+    const actual = getUser();
+
+    expect.deepEqual(actual, testUser);
 });
