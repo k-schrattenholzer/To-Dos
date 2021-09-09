@@ -5,11 +5,31 @@ const newToDoForm = document.getElementById('new-item-form');
 const toDoList = getToDoList();
 const listEl = document.getElementById('list-el');
 const inputEl = document.getElementById('new-item-input');
+const listItem = document.getElementsByClassName('list-item');
 
 inputEl.placeholder = 'what do you gotta do?';
 renderToDoList(toDoList);
 
 
+
+
+
+addItemButton.addEventListener('click', (e) => {
+    // create form data object
+    e.preventDefault();
+    const formData = new FormData(newToDoForm);
+
+    addToDoItem(formData.get('new-to-do'));
+    inputEl.placeholder = 'add another?';
+    inputEl.value = '';
+
+    const newList = getToDoList();
+    renderToDoList(newList);
+});
+
+// listItem.addEventListener('click', () => {
+
+// });
 
 function renderToDoList(toDoList){
     listEl.innerHTML = '';
@@ -28,15 +48,3 @@ function renderToDoList(toDoList){
         listEl.append(listItemEl, toDoItem);
     } 
 }
-
-addItemButton.addEventListener('click', (e) => {
-    // create form data object
-    e.preventDefault();
-    const formData = new FormData(newToDoForm);
-
-    addToDoItem(formData.get('new-to-do'));
-    inputEl.placeholder = 'add another?';
-
-    const newList = getToDoList();
-    renderToDoList(newList);
-});
