@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./todo.css">
     <title>Document</title>
 </head>
 
@@ -12,30 +12,27 @@
     </header>
     <main>
         <div>
+
             <h2>To Do</h2>
+
             <section class='addToDo'>
+
               <form id='new-item-form'>
+
                 <input 
                 class='input-todo' id='new-item-input'
                 type='text' name='new-to-do'
                 placeholder="what needs to get done?"></input>
+
                 <button id='add-button'>add to list</button>
+
               </form>
+
             </section>
                 
-            <ul class = 'toDoList'>
-              <li>
-                <p>To Do Item 1</p>
-                </li>
-              <li>
-                <p>To Do Item 2</p>
-              </li>
-            </ul>
-          </div>
+            <ul class = 'toDoList' id='list-el'></ul>
+        </div>
     </main>
-    <footer>
-    </footer>
-
     <script type="module" src="./app.js"></script>
 </body>
 

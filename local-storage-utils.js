@@ -26,7 +26,7 @@ export function getToDoList() {
 //put the todos in the right place in local storage  
 export function setToDoList(itemsToDo) {
     const user = getUser();
-    console.log(itemsToDo);
+
     user.itemsToDo = itemsToDo;
 
     setUser(user);
