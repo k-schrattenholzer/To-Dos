@@ -84,3 +84,24 @@ test('addToDoItem should add one list items to the Items to Do in localStorage',
 
 });
 
+test('itemCompleted should change the completed property of the checked todo in localStorage to the Items to Do in localStorage', (expect) => {
+    const testUserCopy = { ...testUser};
+
+    localStorage.setItem(USEROBJ, JSON.stringify(testUserCopy));
+
+    itemCompleted(2546);
+
+    const updatedTodo = [
+        {
+            id: 2546,
+            doThis: 'feed cats',
+            completed: true
+        }
+    ]
+
+    const updatedUserObj = JSON.parse(localStorage.getItem(USEROBJ));
+
+    expect.deepEqual(updatedUserObj.doThis, updatedTodo);
+
+});
+

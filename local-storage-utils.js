@@ -1,7 +1,12 @@
 export const USEROBJ = 'USER';
 
 export function getUser(){
-    return JSON.parse(localStorage.getItem(USEROBJ));
+    const stringedUser = localStorage.getItem(USEROBJ);
+
+    const parsedUser = JSON.parse(stringedUser);
+
+    if (!stringedUser) { return [];}
+    return parsedUser;
 }
     
 export function setUser(userInfo){
@@ -21,7 +26,7 @@ export function getToDoList() {
 //put the todos in the right place in local storage  
 export function setToDoList(itemsToDo) {
     const user = getUser();
-
+    console.log(itemsToDo);
     user.itemsToDo = itemsToDo;
 
     setUser(user);
@@ -29,13 +34,14 @@ export function setToDoList(itemsToDo) {
 // takes in a message, and creates a todo item and puts that into local storage
 export function addToDoItem(string){
     const toDoList = getToDoList();
-
-    const newToDoItem = {
+    
+    const newToDoObject = {
         id: Math.floor((Math.random() * 100000) / 10),
         doThis: string,
         completed: false,
     };
-    toDoList.push(newToDoItem);
+
+    toDoList.push(newToDoObject);
 
     setToDoList(toDoList);
 }
@@ -43,6 +49,12 @@ export function addToDoItem(string){
 
 export function itemCompleted(id){
 
+    const toDoList = getToDoList();
+    const selectedToDo = toDoList.find(doThis => doThis.id === id);
+
+    selectedToDo.completed = 'true';
+    
+    setToDoList(toDoList);
 }
     // find the correct todo in your array
     // set that todo to 'completed: true'

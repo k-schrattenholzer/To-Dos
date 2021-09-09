@@ -14,7 +14,7 @@ newUserForm.addEventListener('submit', (e) => {
         name: formData.get('name'),
         username: userName,
         password: formData.get('pass'),
-        itemsToDo: {}
+        itemsToDo: []
     };
     // set user in local storage
     setUser(user);
