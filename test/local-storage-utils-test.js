@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getUser, setUser, getToDoList, setToDoList, addToDoItem, itemCompleted, USEROBJ, findUser } from "../local-storage-utils.js";
 
 const test = QUnit.test;
@@ -85,6 +86,8 @@ test('addToDoItem should add one list items to the Items to Do in localStorage',
 });
 
 test('itemCompleted should change the completed property of the checked todo in localStorage to the Items to Do in localStorage', (expect) => {
+
+    // eslint-disable-next-line
     const testUserCopy = { ...testUser};
 
     localStorage.setItem(USEROBJ, JSON.stringify(testUserCopy));
