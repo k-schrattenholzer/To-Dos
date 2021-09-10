@@ -18,8 +18,8 @@ loginForm.addEventListener('submit', (e) => {
     const currentUserPW = formData.get('pass');
 
     let previousUser = findUser(currentUserName, currentUserPW);
-
-    if (!previousUser){
+    console.log(previousUser);
+    if (previousUser === 'match'){
         window.location = `./to-do/index.html?username=${currentUserName}`;
     } else {
         alert('your account was not found, please click Create Account to begin');
