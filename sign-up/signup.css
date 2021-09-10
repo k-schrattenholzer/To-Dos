@@ -6,7 +6,6 @@ body {
     font-family: 'Ubuntu', sans-serif;
   }
   
-  
   main {
     display: flex;
     justify-content: center;
@@ -67,35 +66,20 @@ body {
   align-items: center;
   }
   
-  
-  .submit {
-  cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to left, #4f2e55ad, #74477cb4);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin: 10%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-  }
-  
-  #sign-up {
-  cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to right, #2789b0, #29a37e);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin: 10%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  button {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to left, #106332ad, #15442cb7);
+    border: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 10%;
+    font-size: 13px;
+    text-shadow: rgb(85, 78, 78) 1px 1px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
   }
   
   p {

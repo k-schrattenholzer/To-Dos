@@ -15,10 +15,10 @@ loginForm.addEventListener('submit', (e) => {
 
     const formData = new FormData(loginForm);
     const currentUserName = formData.get('username');
-    const currentUserPW = formData.get('username');
+    const currentUserPW = formData.get('pass');
 
     let previousUser = findUser(currentUserName, currentUserPW);
-    debugger
+
     if (!previousUser){
         window.location = `./to-do/index.html?username=${currentUserName}`;
     } else {
