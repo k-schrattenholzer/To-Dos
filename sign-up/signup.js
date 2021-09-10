@@ -1,4 +1,4 @@
-import { setUser, getUser, createUser } from '../local-storage-utils.js';
+import { createUser } from '../local-storage-utils.js';
 
 const newUserForm = document.getElementById('new-user-form');
 // const allUsers = getAllUsers();

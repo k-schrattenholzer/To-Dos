@@ -1,4 +1,4 @@
-import { addToDoItem, getToDoList, getUser, itemCompleted } from '../local-storage-utils.js';
+import { addToDoItem, getToDoList, itemCompleted } from '../local-storage-utils.js';
 
 // const userArray = getUser();
 // const itemsToDo = getToDoList();
@@ -15,9 +15,6 @@ const userName = urlParams.get('username');
 inputEl.placeholder = 'what do you gotta do?';
 renderToDoList(toDoList);
 renderHeader(userName);
-
-
-
 
 
 addItemButton.addEventListener('click', (e) => {
