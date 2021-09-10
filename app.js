@@ -1,7 +1,6 @@
 import { findUser } from './local-storage-utils.js';
 
 const signUpButton = document.getElementById('sign-up');
-const loginButton = document.getElementById('login'); 
 const loginForm = document.getElementById('login-form');
 
 
