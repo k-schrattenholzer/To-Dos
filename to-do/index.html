@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./todo.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id='header'>
+      <a id='logout' href='../index.html'>logout</a>
+    </header>
+    <main>
+        <div>
+
+            <h2>To Do</h2>
+
+            <section class='addToDo'>
+
+              <form id='new-item-form'>
+
+                <input 
+                class='input-todo' id='new-item-input'
+                type='text' name='new-to-do'
+                placeholder="what needs to get done?"></input>
+
+                <button id='add-button'>add to list</button>
+
+              </form>
+
+            </section>
+                
+            <ul class = 'toDoList' id='list-el'></ul>
+        </div>
+    </main>
+    <script type="module" src="./todo.js"></script>
+</body>
+
+</html>
