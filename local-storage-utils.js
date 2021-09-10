@@ -74,7 +74,7 @@ export function itemCompleted(id){
 export function findUser(uname, pw){
     let allUsersArray = getAllUsers();
 
-    const matchingUser = allUsersArray.find(entry => (entry.user === uname && entry.password === pw));
+    const matchingUser = allUsersArray.find(entry => (entry.username === uname && entry.password === pw));
 
     if (!matchingUser) { return 'no match found';}
     return 'match';
