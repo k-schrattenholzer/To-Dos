@@ -1,7 +1,6 @@
 import { setUser, getUser, createUser } from '../local-storage-utils.js';
 
 const newUserForm = document.getElementById('new-user-form');
-const user = getUser();
 // const allUsers = getAllUsers();
 
 
@@ -15,7 +14,6 @@ newUserForm.addEventListener('submit', (e) => {
     createUser(userName, userKey);
 
     // set user in local storage
-    setUser(user);
     // allUsers.push(newUser);
 
     // take user to choose adventure page

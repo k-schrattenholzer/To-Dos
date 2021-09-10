@@ -89,7 +89,7 @@ export function createUser(uname, pw){
         itemsToDo: []
     };
 
-    const updatedArray = JSON.stringify([...usersArray, freshUser]);
-
+    const updatedArray = [...usersArray, freshUser];
+    setUser(freshUser);
     setAllUsers(updatedArray);
 }
