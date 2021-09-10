@@ -1,11 +1,9 @@
-// import functions and grab DOM elements
-const signUpButton = document.getElementById('sign-up');
-// initialize global state
+import { findUser } from './local-storage-utils.js';
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+const signUpButton = document.getElementById('sign-up');
+const loginButton = document.getElementById('login'); 
+const loginForm = document.getElementById('login-form');
+
 
 signUpButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -13,3 +11,18 @@ signUpButton.addEventListener('click', (e) => {
     window.location.href = '/sign-up/index.html';
 });
 
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(loginForm);
+    const currentUserName = formData.get('username');
+    const currentUserPW = formData.get('username');
+
+    let previousUser = findUser(currentUserName, currentUserPW);
+
+    if (!previousUser){
+        window.location = `./to-do/index.html?username=${currentUserName}`;
+    } else {
+        alert('your account was not found, please click Create Account to begin');
+    }
+});

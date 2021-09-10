@@ -1,4 +1,4 @@
-import { getUser, setUser, getToDoList, setToDoList, addToDoItem, itemCompleted, USEROBJ } from "../local-storage-utils.js";
+import { getUser, setUser, getToDoList, setToDoList, addToDoItem, itemCompleted, USEROBJ, findUser } from "../local-storage-utils.js";
 
 const test = QUnit.test;
 

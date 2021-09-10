@@ -1,4 +1,5 @@
 export const USEROBJ = 'USER';
+export const ALLUSERS = 'ALL-USERS';
 
 export function getUser(){
     const stringedUser = localStorage.getItem(USEROBJ);
@@ -10,11 +11,24 @@ export function getUser(){
 }
     
 export function setUser(userInfo){
-    return localStorage.setItem(USEROBJ, JSON.stringify(userInfo));
+    const stringedUser = JSON.stringify(userInfo);
+    localStorage.setItem(USEROBJ, stringedUser);
 }
 
-//(will ned to take in username as an argument if multiple users are being accommodated)
-//simply return an array of todos (not the whole user object) 
+export function getAllUsers(){
+    let stringedUserArray = localStorage.getItem(ALLUSERS);
+    if (!stringedUserArray) { return [];}
+    
+    const parsedUserArray = JSON.parse(stringedUserArray);
+   
+    return parsedUserArray;
+}
+
+export function setAllUsers(usersArray){
+    const stringedArray = JSON.stringify(usersArray);
+    localStorage.setItem(ALLUSERS, stringedArray);
+}
+
 export function getToDoList() {
 
     const { itemsToDo } = getUser();
@@ -22,8 +36,7 @@ export function getToDoList() {
     return itemsToDo;
 }
 
-//(will ned to take in username as an argument if multiple users are being accommodated)
-//put the todos in the right place in local storage  
+
 export function setToDoList(itemsToDo) {
     const user = getUser();
 
@@ -31,7 +44,7 @@ export function setToDoList(itemsToDo) {
 
     setUser(user);
 } 
-// takes in a message, and creates a todo item and puts that into local storage
+
 export function addToDoItem(string){
     const toDoList = getToDoList();
     
@@ -56,5 +69,27 @@ export function itemCompleted(id){
     
     setToDoList(toDoList);
 }
-    // find the correct todo in your array
-    // set that todo to 'completed: true'
+
+
+export function findUser(uname, pw){
+    let allUsersArray = getAllUsers();
+
+    const matchingUser = allUsersArray.find(entry => (entry.user === uname && entry.password === pw));
+
+    if (!matchingUser) { return 'no match found';}
+    return 'match';
+}
+
+export function createUser(uname, pw){
+    let usersArray = getAllUsers();
+
+    const freshUser = {
+        username: uname,
+        password: pw,
+        itemsToDo: []
+    };
+
+    const updatedArray = JSON.stringify([...usersArray, freshUser]);
+
+    setAllUsers(updatedArray);
+}

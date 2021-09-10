@@ -1,6 +1,8 @@
-import { setUser } from '../local-storage-utils.js';
+import { setUser, getUser, createUser } from '../local-storage-utils.js';
 
 const newUserForm = document.getElementById('new-user-form');
+const user = getUser();
+// const allUsers = getAllUsers();
 
 
 newUserForm.addEventListener('submit', (e) => {
@@ -8,16 +10,14 @@ newUserForm.addEventListener('submit', (e) => {
     // create form data object
     const formData = new FormData(newUserForm);
     const userName = formData.get('un');
+    const userKey = formData.get('pass');
 
-    // userData creates user object
-    const user = {
-        name: formData.get('name'),
-        username: userName,
-        password: formData.get('pass'),
-        itemsToDo: []
-    };
+    createUser(userName, userKey);
+
     // set user in local storage
     setUser(user);
+    // allUsers.push(newUser);
+
     // take user to choose adventure page
     window.location = `../to-do/index.html?username=${userName}`;
   

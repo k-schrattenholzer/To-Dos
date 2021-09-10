@@ -57,3 +57,8 @@ width: 200px;
 p:hover {
 font-size: 115%;
 }
+
+.done {
+  text-decoration: line-through;
+  pointer-events: none;
+}

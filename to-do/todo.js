@@ -1,4 +1,7 @@
-import { addToDoItem, getToDoList, itemCompleted } from '../local-storage-utils.js';
+import { addToDoItem, getToDoList, getUser, itemCompleted } from '../local-storage-utils.js';
+
+// const userArray = getUser();
+// const itemsToDo = getToDoList();
 
 const addItemButton = document.getElementById('add-button');
 const newToDoForm = document.getElementById('new-item-form');
@@ -20,18 +23,24 @@ renderHeader(userName);
 addItemButton.addEventListener('click', (e) => {
     // create form data object
     e.preventDefault();
-    const formData = new FormData(newToDoForm);
+    
+    const navHeader = document.getElementById('header');
+    navHeader.innerHTML = '';
 
+    const formData = new FormData(newToDoForm);
     addToDoItem(formData.get('new-to-do'));
+
     inputEl.placeholder = 'add another?';
     inputEl.value = '';
 
     const newList = getToDoList();
-    renderToDoList(newList);
+    renderToDoList(newList);    
+    renderHeader(userName);
 });
 
 
 function renderHeader(username){
+
     const navHeader = document.getElementById('header');
     const infoDiv = document.createElement('div');
     const infoEl = document.createElement('p');
@@ -39,7 +48,7 @@ function renderHeader(username){
     infoDiv.classList.add('info-div');
     infoEl.classList.add('info-el');
     
-    infoEl.textContent = `user:${ username } || total items:${ toDoList.length }`;
+    infoEl.textContent = `| user:${ username } |`;
 
     navHeader.append(infoDiv, infoEl);
 }
@@ -62,7 +71,13 @@ function renderToDoList(toDoList){
         
         toDoItem.addEventListener('click', () => {
             itemCompleted(todo.id);
+            toDoItem.classList.add('done');
+            
         });
+        if (todo.completed === 'true') {
+            toDoItem.classList.add('done');
+        }
+        
     }
   
     
